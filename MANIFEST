@@ -5,7 +5,13 @@ MANIFEST
 META.yml
 Makefile.PL
 README
+README.md
 dist.ini
 ignore.txt
 lib/LWP/Simple/REST.pm
+t/DELETE.t
+t/GET.t
+t/JSONGET.t
+t/JSONPOST.t
+t/POST.t
 t/TODO.t
