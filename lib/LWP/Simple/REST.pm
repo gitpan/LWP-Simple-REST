@@ -2,15 +2,18 @@ package LWP::Simple::REST;
 
 use strict;
 use warnings FATAL => 'all';
+use Data::Structure::Util qw( unbless );
 
 use Exporter qw( import );
 our @EXPORT_OK = qw/
     http_get
     http_post
     http_delete
+    http_head
     http_upload
     json_get
     json_post
+    json_head
 /;
 
 use LWP::UserAgent;
@@ -18,7 +21,7 @@ use HTTP::Request;
 use Try::Tiny;
 use JSON;
 
-our $VERSION = '0.02';
+our $VERSION = '0.004';
 
 my $user_agent = "LWP::Simple::REST";
 
@@ -90,6 +93,23 @@ sub http_delete {
 
 }
 
+sub http_head {
+    my ( $url, $arguments ) = @_;
+
+    my $ua = LWP::UserAgent->new;
+    $ua->agent($user_agent);
+
+    my @parameters;
+    while ( my ( $key, $value ) = each %{ $arguments } ){
+        push @parameters, "$key=$value";
+    }
+    my $parameters_for_url = join "&", @parameters;
+    my $response = $ua->head( $url . "?$parameters_for_url" );
+
+    return unbless($response->headers);
+
+}
+
 sub json_post {
     my ( $url, $arguments ) = @_;
 
@@ -150,7 +170,7 @@ LWP::Simple::REST - A simple procedural interface do http verbs
 
 =head1 VERSION
 
-Version 0.02
+Version 0.004
 
 =head1 SYNOPSIS
 
@@ -185,6 +205,10 @@ Sends a http post to an url on parameters
 =head2 http_delete
 
 Sends a delete request for the url
+
+=head2 http_head
+
+Sends a head request for the url, and unblesses the headers's object allowing access the header
 
 =head2 http_upload
 

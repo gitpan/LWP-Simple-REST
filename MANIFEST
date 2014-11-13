@@ -11,6 +11,7 @@ ignore.txt
 lib/LWP/Simple/REST.pm
 t/DELETE.t
 t/GET.t
+t/HEAD.t
 t/JSONGET.t
 t/JSONPOST.t
 t/POST.t

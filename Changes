@@ -1,5 +1,13 @@
 Revision history for LWP-Simple-REST
 
-0.01    Date/time
+0.001    Date/time
         First version, released on an unsuspecting world.
 
+0.002    Json requests and Fix broken code
+        Added Json requests and fix the old code
+
+0.003    Fix dependency issue
+        Fixed the missing dependency prerequisite issue 
+
+0.004    HEAD
+        This version includes the http_head method, allowing to send HTTP HEAD request to a server

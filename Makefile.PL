@@ -20,13 +20,14 @@ my %WriteMakefileArgs = (
   "LICENSE" => "perl",
   "NAME" => "LWP::Simple::REST",
   "PREREQ_PM" => {
+    "Data::Structure::Util" => 0,
     "ExtUtils::MakeMaker" => 0,
     "HTTP::Server::Simple" => 0,
     "JSON" => 0,
     "LWP::UserAgent" => 0,
     "Test::Exception" => 0
   },
-  "VERSION" => "0.003",
+  "VERSION" => "0.004",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -34,6 +35,7 @@ my %WriteMakefileArgs = (
 
 
 my %FallbackPrereqs = (
+  "Data::Structure::Util" => 0,
   "ExtUtils::MakeMaker" => 0,
   "HTTP::Server::Simple" => 0,
   "JSON" => 0,
