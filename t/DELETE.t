@@ -3,6 +3,7 @@
 use strict;
 use warnings;
 
+use HTTP::Server::Simple::CGI;
 use LWP::Simple::REST qw/http_delete/;
 use Test::More;
 use Test::Exception;
