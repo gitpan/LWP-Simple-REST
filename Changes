@@ -9,5 +9,6 @@ Revision history for LWP-Simple-REST
 0.003    Fix dependency issue
         Fixed the missing dependency prerequisite issue 
 
-0.004    HEAD
+0.04    HEAD
         This version includes the http_head method, allowing to send HTTP HEAD request to a server
+        Fixed the version
